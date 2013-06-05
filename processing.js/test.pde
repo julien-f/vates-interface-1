@@ -1,16 +1,9 @@
 // Global variables
-
 int X, Y;
-
 int nX, nY;
-
 int i=0 ; 
-
-
 int d;
-
 int angleP,angleH,x,y;
-
 int centrex, centrey; 
 int espace ;
 
@@ -27,25 +20,14 @@ void draw (){
 
 	// Draw circle
 	int Nx, Ny;
-	
-	i=0;		
-	
+
 	centrex = 500 ;
 	centrey = 500 ;
 	espace = 100 ;
-	
-	
-	// Fill canvas grey
-	background( 100 );
-	
-	// Set fill-color to blue  
-	fill( 0, 121, 184 );
-	
-	int nb = 0;
-	
+	// first loop to draw initial pool 
 	for (int i = 0, n = data.length; i < n; ++i)
 	{
-		fill(0, 121, 184);
+		fill(0,255,0);
 		
 		angleP = 360/data.length;
 		
@@ -63,7 +45,7 @@ void draw (){
 				
 				line (x ,y , Nx, Ny );
 				
-				fill( 0, 0, 184 );
+				fill( 0,0,255 );
 				
 				ellipse (Nx, Ny, 50.0, 50.0 ) ;
 		}
