@@ -30,10 +30,10 @@ void draw()
 	{
 		fill(0, 255, 0);
 
-		angleP = 360 / n;
+		angleP = TWO_PI / n;
 
-		x = cos(radians(angleP * i)) * espace + centrex;
-		y = sin(radians(angleP * i)) * espace + centrey;
+		x = cos(angleP * i) * espace + centrex;
+		y = sin(angleP * i) * espace + centrey;
 
 		// Pool.
 		ellipse(x, y, 50.0, 50.0);
@@ -43,8 +43,8 @@ void draw()
 		{
 			angleH = angleP/m * j - angleP/2 + angleP*i;
 
-			Nx = cos(radians(angleH)) * espace * 1.5 + x;
-			Ny = sin(radians(angleH)) * espace * 1.5 + y;
+			Nx = cos(angleH) * espace * 1.5 + x;
+			Ny = sin(angleH) * espace * 1.5 + y;
 
 			line (x ,y , Nx, Ny);
 

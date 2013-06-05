@@ -6,16 +6,14 @@ bonsai.run(document.getElementById('test'), {
 		var centrey = 500;
 		var espace = 100;
 		var angle, Nx, Ny, angleP, x, y;
-		var radPool, radPoolenfant;
 
 		// Draw the pools.
 		for (var i = 0, n = data.length; i < n; ++i)
 		{
-			angleP = 360 / n;
+			angleP = 2 * Math.PI / n;
 			angle = angleP*i;
-			var radPool = angle * Math.PI / 180
-			x = Math.cos(radPool) * espace + centrex;
-			y = Math.sin(radPool) * espace + centrey;
+			x = Math.cos(angle) * espace + centrex;
+			y = Math.sin(angle) * espace + centrey;
 
 			// Pool.
 			new Circle(x, y, 25)
@@ -26,9 +24,8 @@ bonsai.run(document.getElementById('test'), {
 			for (var j = 0, m = data[i].hosts ? data[i].hosts.length : 0; j < m; ++j)
 			{
 				angleH = angleP/m * j - angleP/2 + angleP*i;
-				radPoolenfant = angleH * Math.PI / 180;
-				Nx = Math.cos(radPoolenfant) * espace * 1.5 + x;
-				Ny = Math.sin(radPoolenfant) * espace * 1.5 + y;
+				Nx = Math.cos(angleH) * espace * 1.5 + x;
+				Ny = Math.sin(angleH) * espace * 1.5 + y;
 
 				// Pool-host link.
 				new Path([ x, y,Nx, Ny ]).addTo(stage).stroke('black',1);
