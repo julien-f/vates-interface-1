@@ -18,7 +18,8 @@ bonsai.run(document.getElementById('test'), {
 			// Pool.
 			new Circle(x, y, 25)
 				.addTo(stage)
-				.attr('fillColor', 'green');
+				.attr('fillColor', 'green')
+				.stroke('gray', 1);
 
 			// For each pool, draw its hosts.
 			for (var j = 0, m = data[i].hosts ? data[i].hosts.length : 0; j < m; ++j)
@@ -33,7 +34,8 @@ bonsai.run(document.getElementById('test'), {
 				// Host.
 				new Circle(Nx, Ny, 25)
 					.addTo(stage)
-					.attr('fillColor','blue');
+					.attr('fillColor','blue')
+					.stroke('gray', 1);
 			}
 		}
 	},
