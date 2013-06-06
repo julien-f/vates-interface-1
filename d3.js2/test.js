@@ -1,37 +1,34 @@
-var svg = d3.select("#viz")
-	.append("svg")
-	.attr("width", 1000)
-	.attr("height", 1000);    
+var centrex = 500;
+var centrey = 500;
+var espace = 100;
+var angle,Nx,Ny,angleP,x,y;
+var radPool,radPoolenfant;
 
+circleRadii = [30,70,110]
 
-d3.csv("data.csv",function(csv) {
-  // we first sort the data
+var svgContainer = d3.select("#viz").append("svg")
+                                    .attr("width", 1000)
+                                    .attr("height", 1000);
  
-  csv.sort(function(a,b) {return b.population-a.population;});
- 
-  // then we create the marks, which we put in an initial position
- 
-  svg.selectAll("circle").data(csv).enter()
-    .append("circle")
-    .attr("cx",function(d) {return x(0);})
-    .attr("cy",function(d) {return y(0);})
-    .attr("r",function(d) {return r(0);})
- 
-    .style("fill",function(d) {return c(d.continent);})
-    .style("opacity",function(d) {return o(+d.GDPcap);})
- 
-      .append("title")
-      .text(function(d) {return d.country;})
-   
-  // now we initiate - moving the marks to their position
- 
-  svg.selectAll("circle").transition().duration(1000)
-    .attr("cx",function(d) {return x(+d.GERD);})
-    .attr("cy",function(d) {return y(+d.growth);})
-    .attr("r",function(d) {return r(Math.sqrt(+d.population));})
-})
+var circles = svgContainer.selectAll("circle")
+                          .data(data)
+                          .enter()
+                          .append("circle")
 
-
+angleP = 360/data.length;
+var pool_i = 0;
+angle = angleP*(function (d) { return data_i++; });
+var radPool = angle * Math.PI / 180;
+var x,y;
+x = Math.cos(radPool) * espace + centrex;		  				    			  		 
+y = Math.sin(radPool) * espace + centrey;
+			
+			
+var circleAttributes = circles
+                       .attr("cx", x)
+                       .attr("cy", y)
+                       .attr("r", 25)
+                       .style("fill", 'green') ;
 
 
 
@@ -55,7 +52,7 @@ for (var i = 0, n = data.length; i < n; ++i)
 		{
 			angleP = 360/data.length;
 			angle = angleP*i;
-			var radPool = angle * Math.PI / 180
+			var radPool = angle * Math.PI / 180;
 			x = Math.cos(radPool) * espace + centrex ;		  				    			  		 
 			y = Math.sin(radPool) * espace + centrey ;
 			sampleSVG.append("circle")
