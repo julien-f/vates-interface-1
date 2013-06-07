@@ -1,4 +1,4 @@
-// canvas dimensions
+ç// canvas dimensions
 var width = 1000;
 var height = 1000;
 // Variables.
