@@ -87,7 +87,7 @@ var data = [
 		]
 	},
 		{
-		"label": "Pool 3",
+		"label": "Pool 5",
 		"hosts": [
 			{
 				"label": "Host 1",

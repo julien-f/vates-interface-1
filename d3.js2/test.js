@@ -90,7 +90,7 @@ var svg = d3.select("body").append("svg")
 	.attr("width",  width)
 	.attr("height",  height);
 
-// @todo
+// Creation des cercles. 
 svg.selectAll("circle").data(country).enter().append("circle")
 	.attr("cx", x)
 	.attr("cy", y)
